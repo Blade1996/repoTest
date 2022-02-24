@@ -1,0 +1,2 @@
+update sal_sale_documents_detail set sale_price = price, unit_price = price/1.18, tax = 18, tax_amount = ((price/1.18)*0.18)*quantity, subtotal_without_tax = (price/1.18)*quantity
+where tax = 0 and tax_amount = 0 and sal_sale_documents_id in (321291, 319822) and deleted_at is null;

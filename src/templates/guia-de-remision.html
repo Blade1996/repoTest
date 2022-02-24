@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Archivo|Noto+Sans" rel="stylesheet">
+    <title>Guia de Remision</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+    }
+    .text-obligid {
+        color: #000000;
+        font-size: 9px;
+    }
+    
+    .text-direction {
+        color: #5a5a5a;
+        font-weight: bold;
+        font-size: 8px;
+    }
+    
+    .border-reporte {
+        border-radius: 8px;
+        border: solid 1px #000000;
+        height: 308px;
+        padding: 11px 0 0 14px;
+        position: absolute;
+        right: 27px;
+        top: 47px;
+        width: 290px;;
+    }
+    
+    .text-ruc {
+        font-size: 11px;
+        text-align: left;
+    }
+    
+    .margin-left {
+        margin-left: 120px;   
+    }
+
+    .item-table {
+        border: solid 1px #e7792b;
+        margin-top: 19px;
+        width: 634px;
+    }
+
+    .background-table {
+        background-color: #e7792b;
+        height: 24px;
+        width: 634px;
+    }
+    
+    .text-bold-table {
+        color: #000000;
+        font-size: 9px;
+        margin-bottom: 8px;
+        width: 534px;
+    }
+    
+    .text-ligth-table {
+        color: #5a5a5a;
+        font-size: 9px;
+    }
+    
+    .table-customer {
+        display: inline-block;
+        margin-bottom: 25px;
+        border-collapse: collapse;
+        padding-top: 13px;
+    }
+    
+    table {
+        border-top: 1px solid #000000;
+        border-left: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        border-right: 1px solid #000000;
+    }
+    
+    th {
+        border-bottom: 1px solid #000000;
+    }
+    
+    td ,th {
+        padding: 6px;
+        text-align: justify;
+        width: 350px;
+    }
+    
+    .title-table {
+        color: #000000;
+        font-size: 9px;
+        text-align: center;
+    }
+    
+    .item-table-remision {
+        color: #5a5a5a;
+        font-size: 9px;
+        text-align: center;
+    }
+    
+    .margin-bottom {
+        margin-bottom: 19px;
+    }
+    
+    .firma {
+        background-color: #000000;
+        height: 1px;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        width: 174px;
+    }
+    
+
+    
+    .padding-title {
+        padding: 10px;
+    }
+    
+    .container-comprobante {
+        width: 100%;
+        height:292px;
+        border: solid 1px #000000;
+        padding: 15px 30px 0 15px;
+        margin-top: 8px;
+
+    }
+    
+    .container-table {
+        border-radius: 7px;
+        border: solid 1px #000000;
+        width: 100%;
+        padding: 15px 20px 17px 20px;
+        margin-top: 8px;
+        height: 123px;
+    }
+    
+    .logo-qtc {
+        height: 137px;
+        margin: 0 0 20px 45px;
+        width: 154px;
+    }
+    
+    .text-password {
+        color: #000000;
+        font-size: 9px;
+    }
+    
+    .logo-bar {
+        height: 32px;
+        margin-bottom: 10px;
+        width: 180px;
+    }
+    
+    .document-customs {
+        margin-left: 75px;
+    }
+    
+    .date-finish {
+        color: #000000;
+        margin-left: 15px;
+    }
+    
+    .destination {
+        margin-left: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div style="padding: 40px 32px 0 32px">
+     <img src="https://user-images.githubusercontent.com/461124/48586138-19155b00-e8fd-11e8-91e9-e0fe35b7d1d6.png" class="logo-qtc"/>
+    <div>
+    <div style="border: 1px solid #000000; width:50%;padding-left:15px;height:150px;padding-top: 9px; margin-top: 5px;border-radius: 8px">
+        <p class="text-obligid" style="margin-bottom: 10px">SRI2</p>
+        <p class="text-obligid" style="margin-bottom: 8px">SRI</p>
+        <p class="text-direction">Dirección Matriz : <span class="text-ligth-table">{{sales.subsidiary.address}}</span></p>
+        <p class="text-direction" style="margin-top:5px">Dirección Sucursal: <span class="text-ligth-table">{{sales.subsidiary.address}}</span></p>
+        <p style="margin-top: 5px" class="text-bold-table">Contribuyente especial Nro <span style="padding-left: 110px">{{sale.subsidiary.specialContributor}}</span></p>
+        <p class="text-bold-table" style="margin-top:5px">OBLIGADO A LLEVAR CONTABILIDAD <span style="padding-left: 75px">{{sale.subsidiary.flagAccout}}</span></p>
+    </div>
+ <div class="border-reporte">
+     <p class="text-ruc">RUC 20515298127</p>
+     <p style="font-size: 14px; text-align: left; margin-top: 12px">GUÍA DE REMISIÓN</p>
+     <p style="font-size: 11px; text-align: left; margin-bottom: 10px; margin-top: 9px">Nº {{number}}</p>
+     <p style="font-size: 11px; text-align: left">Número de Autorización</p>
+     <p style="font-size: 11px; text-align: left; margin-top: 9px; margin-bottom: 16px">{{authorizationNumber}}</p>
+     <p style="font-size: 9px ; margin-bottom: 10px">FECHA DE AUTORIZACIÓN <span>{{authorizationDate}}</span> </p>
+     <p style="font-size: 11px; font-weight: bold; margin-bottom: 10px">Ambiente: <span style="font-size: 9px;font-weight: normal">{{environment}}</span></p>
+     <p style="font-size: 11px; font-weight: bold; margin-bottom: 10px">Emisión: <span style="font-size: 9px;font-weight: normal">{{emission}}</span> </p>
+     <p style="font-size: 14px;font-weight: normal; margin-bottom: 10px">CLAVE DE ACCESO</p>
+     <img src="{{urlPassword}}" logo="logo-bar">
+     <p class="text-password">{{password}}</p>
+ </div>
+</div>
+
+<div class="container-table">
+    <p class="text-bold-table">Identificación: <span class="text-ligth-table" style="margin-left: 150px"></span></p>
+    <p class="text-bold-table">RAZÓN SOCIAL/NOMBRE O APELLIDO: <span class="text-ligth-table" style="margin-left: 35px">{{sales.subsidiary.rzSocial}}</span></p>
+    <p class="text-bold-table">PLACA: <span class="text-ligth-table" style="margin-left: 177px">{{driverLicense}}</span></p>
+    <p class="text-bold-table">PUNTO DE PARTIDA <span class="text-ligth-table" style="margin-left: 120px">{{sales.subsidiary.address}}</span></span></p>
+    <p class="text-bold-table">FECHA DE INICIO TRANSPORTE <span class="text-ligth-table" style="margin-left: 65px">{{createdAtSri}}</span><span class="date-finish">FECHA DE FIN TRANSPORTE<span class="text-ligth-table destination">{{destination}}</span></span> </p>
+</div >
+
+<div class="container-comprobante">
+    <p class="text-bold-table">Comprobantes de ventas<span class="text-ligth-table" style="margin-left: 70px">FACTURA</span> <span class="text-ligth-table">874265346757345784</span> <span style="margin-left: 39px">Fecha de emisión:</span> <span class="text-ligth-table">01/11/2018</span> </p>
+    <p class="text-bold-table">NÚMERO DE AUTORIZACIÓN <span class="text-ligth-table" style="margin-left: 60px">{{sales.authorizationNumber}}</span></p>
+    <p class="text-bold-table">MOTIVO DE TRASLADO <span class="text-ligth-table" style="margin-left: 85px">{{reason}}</span></p>
+    <p class="text-bold-table">DESTINO(PUNTO DE LLEGADA) <span class="text-ligth-table" style="margin-left: 45px">{{sale.customer.address}}</span></p>
+    <p class="text-bold-table">IDENTIFICACIÓN (DESTINATARIO) <span class="text-ligth-table" style="margin-left: 32px">{{destination}}</span></p>
+    <p class="text-bold-table">RAZÓN SOCIAL / NOMBRE Y APELLIDO<span class="text-ligth-table" style="margin-left: 18px">{{sales.customer.typePerson.fullName}}</span> </p>
+    <p class="text-bold-table">DOCUMENTO ADUANERO <span class="document-customs text-ligth-table"></span> </p>
+    <p class="text-bold-table">CÓDIGO ESTABLECIMIENTO DESTINO <span class="text-ligth-table" style="margin-left: 17px"></span></p>
+<table cellspacing="0" cellpadding="0"style="border-collapse: collapse; margin-top: 30px" width="100%">
+    <tbody>
+        <tr>
+            <th class="title-table">Cantidad</th>
+            <th class="title-table">Descripción</th>
+            <th class="title-table padding-title">CÓDIGO PRINCIPAL</th>
+            <th class="title-table">CÓDIGO AUXILIAR</th>
+        </tr>
+        {{#each details}}
+        <tr>
+            <td class="item-table-remision">{{quantity}}</td>
+            <td class="item-table-remision">{{product.description}}</td>
+            <td class="item-table-remision">{{product.code}}</td>
+            <td class="item-table-remision">{{product.autoBarcode}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>
+    </div>
+</body>
+</html>

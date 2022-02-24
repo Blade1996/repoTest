@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Factura PDF</title>
+    <style>
+        * {
+            font-family: "Arial", Monaco, monospace;
+            font-size: 10px;
+            font-weight: normal;
+            padding: 0px;
+        }
+
+        .billing-container {
+            margin: 0 auto;
+            max-width: 213px;
+        }
+
+        .billing-header {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        thead > tr {
+            border-bottom: 2px dotted grey;
+            border-top: 2px dotted grey;
+        }
+
+	    thead {
+            display: table-row-group;
+        }
+
+        h1 {
+            font-size: 14px;
+        }
+
+        h3 {
+            font-size: 9px;
+        }
+
+        p {
+            margin: 0px;
+        }
+
+        table {
+            margin-top: 10px;
+            padding: 0px;
+        }
+
+        td.td-padding-top {
+            padding-top: 6px;
+        }
+
+        td.td-padding-bottom {
+            padding-bottom: 2px;
+        }
+
+        .pd-right {
+            padding-right: 6px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="billing-container">
+        <div class="billing-header">
+            <h1>{{ company.companyRzSocial }}</h1>
+            <h3>{{ subsidiary.rzSocial }}</h3>
+            <h3>RUC: {{ subsidiary.ruc }}</h3>
+            <h3>{{ subsidiary.address }}</h3>
+            <h3>Tienda: {{ warehouse.address }}</h3>
+        </div>
+        <div class="billing-data">
+            <p>{{ localDate.date }}</p>
+            <p>Serie: {{ terminal.printCode }}</p>
+            <p>Cajero: {{ employee.name }}</p>
+            <p>Cliente: {{ customer.typePerson.fullName }}</p>
+            <p>RUC: {{ customer.ruc }}</p>
+            <p>DNI: {{ customer.dni }}</p>
+            <p>{{ customer.address }}</p>
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th class="text-left">SKU</th>
+                    <th>DESC</th>
+                    <th>CANT.</th>
+                    <th>PRECIO</th>
+                    <th class="text-right">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each details}}
+                <tr>
+                    <td colspan="2" class="td-padding-top">
+                        {{ product.code }}
+                    </td>
+                    <td class="text-center td-padding-top">
+                        {{ quantity }}
+                    </td>
+                    <td class="text-center td-padding-top">
+                        {{ price }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        {{ product.name }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-center td-padding-bottom">
+                        Desc: {{ discount }}
+                    </td>
+                    <td class="text-center td-padding-bottom">
+                        {{ priceWithOutDiscount }}
+                    </td>
+                    <td class="text-right td-padding-bottom">
+                        {{ subTotal }}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>{{ totalQuantity }} Unid(s) Sub Total:</td>
+                    <td class="text-right">S/ {{ subtotal }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right">IGV 18.00000%:</td>
+                    <td class="text-right">{{ taxes }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right">Total:</td>
+                    <td class="text-right">S/ {{ amount }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                {{#each transactions}}
+                <tr>
+                    <td>PAGO: {{ typePayment.name }}</td>
+                    <td class="text-center">{{ currencySymbol }} {{ amount }}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td>Ud. ahorró:</td>
+                    <td>{{ discount }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th class="text-left">TK-FACTURAS Nro</th>
+                    <th class="pd-right">:</th>
+                    <th>{{ serie }} {{ number }}</th>
+                </tr>
+            </thead>
+            <tbody>
+				<tr>
+					<td>{{ commentary }}</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						{{{ salSeries.description }}}
+					</td>
+				</tr>
+                <tr>
+                    <td class="td-padding-top">Tipo de Documento</td>
+                    <td class="td-padding-top pd-right">:</td>
+                    <td class="td-padding-top">{{ typeDocument.name }}</td>
+                </tr>
+                <tr>
+                    <td>Nro Documento</td>
+                    <td class="pd-right">:</td>
+                    <td>{{ typeDocument.qpCode }}{{ serie }} {{ number }}</td>
+                </tr>
+                <tr>
+                    {{#if documentRelated}}
+                    <td>Doc. Relacionado</td>
+                    <td class="pd-right">:</td>
+                    <td>{{documentRelated.typeDocument.qpCode}}{{ documentRelated.documentNumber }}</td>>
+                    {{/if}}
+                </tr>
+                <tr>
+                    <td>Fecha Documento</td>
+                    <td class="pd-right">:</td>
+                    <td>{{ localDate.date }}</td>
+                </tr>
+                <tr>
+                    <td>Nro Autorización</td>
+                    <td class="pd-right">:</td>
+                    <td>{{ terminal.sunatCode }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Fecha Autorización</td>
+                    <td class="pd-right">:</td>
+                    <td>{{ terminal.authorizationDate }}</td>
+                </tr>
+                <tr>
+                    <td>Serie desde el</td>
+                    <td class="pd-right">:</td>
+                    <td>000001 hasta el 9999999</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

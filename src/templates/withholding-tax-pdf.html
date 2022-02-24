@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Archivo|Noto+Sans" rel="stylesheet">
+    <title>Guia Comprobante</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+    }
+    
+    td {
+        font-size: 8px;
+        padding: 8px;
+        text-align: left;
+    }   
+    
+    th {
+        border-bottom: 1px solid #000000;
+        padding: 5px;
+    }
+    
+    .name-cliente {
+        color: #000000;
+        font-size: 9px;
+        margin-bottom: 3px;
+    }
+    
+    .guia-remision {
+        border: solid 1px #000000;
+        border-radius: 8px;
+        height: 142px;
+        padding: 9px 15px 8px 15px;
+        width: 310px;
+    }
+    
+    .text-gray-ligth {
+        color: #5a5a5a;
+        font-size: 8px;
+    }
+    
+    .border-reporte {
+        border: solid 1px #000000;
+        border-radius: 8px;
+        height: 308px;
+        padding: 15px 12px 11px 12px;
+        position: absolute;
+        right: 36px;
+        top: 35px;
+        width: 282px;
+    }
+    
+    .text-bold {
+        font-size: 9px;
+        font-weight: bold;
+    }
+    
+    .logo {
+        height: 32px;
+        margin-bottom: 8px;
+        width: 240px;
+    }
+    
+    .logo-qtc {
+        margin: 0 0 20px 70px;
+    }
+    
+    .container-networks {
+        border: solid 1px #000000;
+        border-radius: 7px;
+        height: 60px;
+        margin-top: 10px;
+        padding: 15px;
+        width: 100%;
+    }
+    
+    .title-table {
+        color: #000000;
+        font-size: 8px;
+        text-align: center;
+    }
+    
+    .container-information {
+        border: solid 1px #000000;
+        height: 122px;
+        margin-top: 5px;
+        padding: 20px 0 0 15px;
+        width: 290px;
+    }
+    
+    .text-password {
+        color: #000000;
+        font-size: 9px;
+    }
+    
+    .table-retencion {
+        border: 1px solid #000000;
+    }
+    </style>
+</head>
+<body>
+<div style="padding: 40px 32px 0 32px">
+     <img src="https://user-images.githubusercontent.com/461124/48586138-19155b00-e8fd-11e8-91e9-e0fe35b7d1d6.png" class="logo-qtc"/>
+    <div class="guia-remision">
+    <p class="name-cliente" style="padding-bottom: 10px;font-weight: bold">SRI1</p>
+    <p class="name-cliente" style="padding-bottom: 10px;font-weight: bold">SRI</p>
+    <p class="text-bold" style="margin-bottom: 4px">Dirección Matriz :  <span class="text-gray-ligth">{{supplier.address}}</span></p>
+    <p class="text-bold" style="padding-bottom: 15px">Dirección Sucursal: <span class="text-gray-ligth">{{supplier.address}}</span></p>
+    <p class="text-bold" style="margin-bottom: 10px">Contribuyente especial Nro <span class="text-gray-ligth" style="margin-left: 93px">{{subsidiary.specialContributor}}</span></p>
+    <p class="text-bold">OBLIGADO A LLEVAR CONTABILIDAD <span class="text-gray-ligth" style="margin-left: 48px">{{subsidiary.flagAccount}}</span></p>
+     
+    <div class="border-reporte">
+     <p class="text-ruc" style="text-align: left">RUC {{company.ruc}}</p>
+     <p style="font-size: 14px; text-align: left; margin-bottom: 7px; margin-top: 12px">COMPROBANTE DE RETENCIÓN</p>
+     <p style="font-size: 11px; text-align: left; margin-bottom: 10px; margin-top: 9px">Nº 002 - 001 - 123456789</p>
+     <p style="font-size: 11px; text-align: left; margin-bottom: 8px">NÚMERO DE AUTORIZACIÓN</p>
+     <p style="font-size: 11px; text-align: left; margin-bottom: 10px">{{withholdingRelated.authorizationNumber}}</p>
+     <p style="font-size:9px;padding-bottom: 7px">FECHA DE AUTORIZACIÓN <span class="text-gray-ligth" style="padding-left: 8px">{{withholdingRelated.authorizationDate}}</span></p>
+     <p style="font-size: 11px; text-align: left; padding-bottom:7px">AMBIENTE: <span class="text-gray-ligth">{{withholdingRelated.environment}}</span></p>
+     <p style="font-size: 11px; text-align: left; padding-bottom:7px">EMISIÓN: <span class="text-gray-ligth">{{withholdingRelated.emission}}</span></p>
+     <p style="font-size: 14px; padding-bottom: 10px">CLAVE DE ACCESO</p>
+     <img src="{{withholdingRelated.urlPassword}}" class="logo"/>
+     <p class="text-password">{{withholdingRelated.password}}</p>
+    </div>
+ </div>
+ <div class="container-networks">
+        <p class="text-bold">RAZÓN SOCIAL/NOMBRE O APELLIDO : <span class="text-gray-ligth" style="padding-left: 5px">{{supplier.name}}</span> <span style="margin-left: 35px">IDENTIFICACIÓN: </span> <span class="text-gray-ligth" style="padding-left: 5px">{{supplier.documentNumber}}</span> </p>
+        <p class="text-bold" style="margin-top: 11px">FECHA DE EMISIÓN :<span class="text-gray-ligth" style="padding-left: 5px">{{createdAtSri}}</span></p>
+    </div>
+    <table width="100%" cellspacing="0" cellpadding="0" heigth="154px" style="margin-top: 9px" class=table-retencion>
+        <tbody>
+            <tr>
+                <th class="title-table">Comprobante</th>
+                <th class="title-table">Número</th>
+                <th class="title-table">Fecha de Emisión</th>
+                <th class="title-table">Ejercicio Fiscal</th>
+                <th class="title-table">Base Imponible para la Retención</th>
+                <th class="title-table">Impuestos</th>
+                <th class="title-table">Pocentaje de Retención</th>
+                <th class="title-table">Valor Retenido</th>
+            </tr>
+            {{#each withholdingRelated.details}}
+            <tr>
+                <td class="text-gray-ligth" style="text-align: center">{{@root.typeDocument.name}}</td>
+                <td class="text-gray-ligth" style="text-align: center">{{@root.withholdingRelated.numberOperation}}</td></td>
+                <td class="text-gray-ligth" style="text-align: center">{{@root.createdAtSri}}</td>
+                <td class="text-gray-ligth" style="text-align: center">{{@root.periodTax}}</td>
+                <td class="text-gray-ligth" style="text-align: center">{{baseSubtotal}}</td>
+                <td class="text-gray-ligth" style="text-align: center">{{codeTax}}</td>
+                <td class="text-gray-ligth" style="text-align: center">{{percentageTax}}</td>
+                <td class="text-gray-ligth" style="text-align: center">{{@root.subTotal}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <div class="container-information">
+        <p class="text-bold">INFORMACIÓN ADICIONAL</p>
+        <p class="text-bold" style="margin-top: 15px">DIRECCIÓN <span class="text-gray-ligth" style="margin-left:20px"></span></p>
+        <p class="text-bold" style="margin-top: 15px">E-MAIL <span class="text-gray-ligth" style="margin-left:42px"></span></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+UPDATE com_ms_type_payments SET summary_code='EFEV' WHERE code='efectivo';
+UPDATE com_ms_type_payments SET summary_code='VISV' WHERE code='visa';
+UPDATE com_ms_type_payments SET summary_code='MASV' WHERE code='mastercard';
+UPDATE com_ms_type_payments SET summary_code='AMEV' WHERE code='amex';
+UPDATE com_ms_type_payments SET summary_code='DINV' WHERE code='dinners';
+UPDATE com_ms_type_payments SET summary_code='DBAV' WHERE code='deposito-bancario';
+UPDATE com_ms_type_payments SET summary_code='MASU' WHERE code='mastercard-dollars';
+UPDATE com_ms_type_payments SET summary_code='VISU' WHERE code='visa-dollars';
+UPDATE com_ms_type_payments SET summary_code='AMEU' WHERE code='amex-dollars';
+UPDATE com_ms_type_payments SET summary_code='DINU' WHERE code='dinners-dollars';
+UPDATE com_ms_type_payments SET summary_code='EFEU' WHERE code='cash-dollars';
+UPDATE com_ms_type_payments SET summary_code='CHEV' WHERE code='cheque';
+UPDATE com_ms_type_payments SET summary_code='EFEC' WHERE code='efectivo';
+UPDATE com_ms_type_payments SET summary_code='VISC' WHERE code='visa';
+UPDATE com_ms_type_payments SET summary_code='DBAC' WHERE code='deposito-bancario';
+UPDATE com_ms_type_payments SET summary_code='CHEC' WHERE code='cheque';
+UPDATE com_ms_type_payments SET summary_code='TC' WHERE code='tc';

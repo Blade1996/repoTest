@@ -1,0 +1,45 @@
+'use strict';
+
+const errorCodes = {
+	functionNotFound: 'FUNCTION_NOT_FOUND',
+	paymentLinkFunctionMustBeImplemented: 'PAYMENT_LINK_FUNCTION_MUST_BE_IMPLEMENTED',
+	authorizeTransactionFunctionMustBeImplemented:
+		'AUTHORIZE_TRANSACTION_FUNCTION_MUST_BE_IMPLEMENTED',
+	paymentGatewayInformationFunctionMustBeImplemented:
+		'PAYMENT_GATEWAY_INFORMATION_FUNCTION_MUST_BE_IMPLEMENTED',
+	currencyFunctionMustBeImplemented: 'CURRENCY_FUNCTION_MUST_BE_IMPLEMENTED',
+	checkoutInformationMustBeImplemented: 'CHECKOUT_INFORMATION_MUST_BE_IMPLEMENTED',
+	xchangeGatewayIncorrectlyConfigured: 'XCHANGE_GATEWAY_INCORRECTLY_CONFIGURED',
+	validateTransactionFunctionMustBeImplemented: 'VALIDATE_TRANSACTION_FUNCTION_MUST_BE_IMPLEMENTED',
+	xchangeValidationResponseNotProvided: 'XCHANGE_VALIDATION_REPONSE_NOT_PROVIDED',
+	leadgodsPaymentTransactionError: 'LEADGODS_PAYMENT_TRANSACTION_ERROR',
+	leadgodsGatewayCommerceNotConfig: 'LEADGODS_GATEWAY_COMMERCE_NOT_CONFIG',
+	saveTransactionFunctionNotImplemented: 'SAVE_TRANSACTION_FUNCTION_NOT_IMPLEMENTED',
+	pagoPluxGatewayIncorrectlyConfigured: 'PAGOPLUX_GATEWAY_INCORRECTLY_CONFIGURED',
+	pagoPluxValidationResponseNotProvided: 'PAGOPLUX_VALIDATION_REPONSE_NOT_PROVIDED',
+	paymentezGatewayIncorrectlyConfigured: 'PAYMENTEZ_GATEWAY_INCORRECTLY_CONFIGURED',
+	paymentezValidationResponseNotProvided: 'PAYMENTEZ_VALIDATION_REPONSE_NOT_PROVIDED',
+	placeToPayGatewayIncorrectlyConfigured: 'PLACETOPAY_GATEWAY_INCORRECTLY_CONFIGURED',
+	placeToPayValidationResponseNotProvided: 'PLACETOPAY_VALIDATION_REPONSE_NOT_PROVIDED',
+	placeToPayPaymentTransactionError: 'PLACETOPAY_PAYMENT_TRANSACTION_ERROR',
+	statusTransactionFunctionMustBeImplemented: 'STATUS_TRANSACTION_FUNCTION_MUST_BE_IMPLEMENTED',
+	refundTransactionFunctionMustBeImplemented: 'REFUND_TRANSACTION_FUNCTION_MUST_BE_IMPLEMENTED',
+	gatewayPreviouslyCanceledTransaction: 'GATEWAY_PREVIOUSLY_CANCELED_TRANSACTION',
+	validTimeAutomaticRefundExceeded: 'VALID_TIME_AUTOMATIC_REFUND_EXCEEDED',
+	paymentListTransactionFunctionMustBeImplemented:
+		'PAYMENT_LIST_TRANSACTION_FUNCTION_MUST_BE_IMPLEMENTED',
+	datafastGatewayIncorrectlyConfigured: 'DATAFAST_GATEWAY_INCORRECTLY_CONFIGURED',
+	datafastValidationResponseNotProvided: 'DATAFAST_VALIDATION_REPONSE_NOT_PROVIDED',
+	niubizGatewayIncorrectlyConfigured: 'NIUBIZ_GATEWAY_INCORRECTLY_CONFIGURED',
+	niubizValidationResponseNotProvided: 'NIUBIZ_VALIDATION_REPONSE_NOT_PROVIDED',
+	alignetGatewayIncorrectlyConfigured: 'ALIGNET_GATEWAY_INCORRECTLY_CONFIGURED',
+	alignetValidationResponseNotProvided: 'ALIGNET_VALIDATION_REPONSE_NOT_PROVIDED',
+	subsidiaryTaxesSettingsError: 'SUBSIDIARY_TAXES_SETTINGS_ERROR',
+	incompleteInformationCanNotCarryOutTransaction:
+		'INCOMPLETE_INFOMATION_CAN_NOT_CARRY_OUT_TRANSACTION_ERROR',
+	mercadoPagoPaymentTransactionError: 'MERDADOPAGO_PAYMENT_TRANSACTION_ERROR',
+	mercadoPagoGatewayIncorrectlyConfigured: 'MERDADOPAGO_GATEWAY_INCORRECTLY_CONFIGURED',
+	mercadoPagoValidationResponseNotProvided: 'MERDADOPAGO_VALIDATION_REPONSE_NOT_PROVIDED',
+};
+
+module.exports = errorCodes;

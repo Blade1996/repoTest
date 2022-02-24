@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Archivo|Noto+Sans" rel="stylesheet">
+    <title>Guia Comprobante</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+        padding:0;
+        position: relative;
+    } 
+    
+    th {
+        border-bottom: 1px solid  #000000;
+        padding: 5px;
+    }
+    
+    .container-credito {
+        padding: 40px 32px;
+    }
+    
+    .border-one {
+        border: solid 1px #000000;
+        border-radius: 8px;
+        height: 130px;
+        padding: 9px 14px;
+        width: 310px;
+    }
+    
+    .text-bold {
+        color: #000000;
+        font-size: 8px;
+        font-weight: bold;
+    }
+    
+    .text-regular {
+        color: #000000;
+        font-size: 8px;
+        font-weight: normal;
+    }
+    
+    .logo-qtc {
+        margin: 0 0 5px 45px;
+    }
+    
+    .border-two {
+      border-radius: 8px;
+      border: solid 1px #000000;
+      height: 268px;
+      padding: 15px;
+      position: absolute;
+      right: 35px;
+      top: 48px;
+      width: 272px;
+    }
+    
+    .border-three {
+        border-radius: 7px;
+        border: solid 1px #000000;
+        height: 127px;
+        margin-top: 9px;
+        padding: 15px;
+        width: 100%;
+    }
+    
+    .text-gray {
+        color: #5a5a5a;
+        font-size: 8px;
+    }
+    
+    .border {
+        background-color: #000000;
+        height: 1px;
+        margin-bottom: 13px;
+        width: 509px;
+    }
+    
+    .table-product {
+        border-bottom: 1px solid #000000;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        border-top:1px solid #000000;
+        margin-top: 13px;
+    }
+    
+    .title-table {
+       color: #000000;
+       font-size: 8px;
+    }
+    
+    .border-four {
+      border: solid 1px #000000;
+      height: 120px;
+      margin-top: 5px;
+      padding: 10px 13px;
+      width: 290px;
+    }
+     
+    .list-price {
+        color: #000000;
+        font-size: 7px;
+        margin-bottom: 3px;
+    }
+    
+    .container-price {
+        border: 1px solid #000000;
+        bottom: -1px;
+        padding: 6px;
+        position: absolute;        
+        right: 0;
+        width: 310px;
+    }
+    
+    .text-password {
+        color: #000000;
+        font-size: 9px;
+    }
+    
+    .code-bar {
+        height: 32px;
+        width: 220px;
+    }
+    
+    .text-id {
+        margin-left: 35px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container-credito">
+        <img src="https://user-images.githubusercontent.com/461124/48586138-19155b00-e8fd-11e8-91e9-e0fe35b7d1d6.png" class="logo-qtc">
+      <div class="border-one">
+        <p  style="font-size: 11px; font-weight: bold">SRI2</p>
+        <p  style ="font-size: 11px; font-weight: bold; padding-top: 10px; padding-bottom: 10px">SR</p>
+        <p class="text-bold" style="margin-bottom: 10px">Dirección Matriz : <span class="text-regular">{{subsidiary.address}}</span></p>
+        <p class="text-bold" style="margin-bottom: 10px">Dirección Sucursal: <span class="text-regular">{{subsidiary.address}}</span></span></p>
+        <p class="text-bold">Contribuyente especial Nro <span class="text-bold" style="padding-left: 60px">{{subsidiary.specialContributor}}</span></p>
+        <p class="text-bold" style="margin-top: 8px">OBLIGADO A LLEVAR CONTABILIDAD <span class="text-bold" style="padding-left: 20px">{{subsidiary.flagAccount}}</span></p>
+     </div>
+     <div class="border-two">
+         <p style="font-size: 11px; font-weight: bold">RUC {{subsidiary.ruc}}</p>
+         <p style="margin-top: 10px">NOTA DE CRÉDITO</p>
+         <p style="font-size: 11px; font-weight: bold">No {{number}}</p>
+         <p style="font-size: 11px; font-weight: bold; margin-top: 8px; margin-bottom: 8px">NÚMERO DE AUTORIZACIÓN</p>
+         <p class="text-bold" style="margin-bottom: 10px">{{authorizationNumber}}</p>
+         <p class="text-regular">FECHA DE AUTORIZACIÓN <span>{{authorizationDate}}</span></p>
+         <p style="font-size: 11px; font-weight: bold;margin-top: 5px; margin-bottom: 5px">AMBIENTE: <span class="text-regular" style="margin-left: 10px">{{environment}}</span></p>
+         <p style="font-size: 11px; font-weight: bold; margin-bottom: 8px">EMISIÓN: <span class="text-regular" style="margin-left: 22px">{{emission}}</span></p>
+         <p style="font-size: 14px; margin-bottom: 10px">CLAVE DE ACCESO</p>
+         <img src="{{urlPassword}}" class="code-bar">
+         <p class="text-password">{{password}}</p>
+     </div>
+     <div class="border-three">
+         <p class="text-regular" style="margin-bottom: 11px">RAZÓN SOCIAL/NOMBRE O APELLIDO : <span class="text-gray">{{customer.typePerson.fullName}}</span><span class="text-id">Identificación: </span><span class="text-gray">{{customer.typePerson.documentNumber}}</span></p>
+         <p class="text-regular" style="margin-bottom: 7px">FECHA DE EMISIÓN: <span class="text-gray">{{documents.createdAtSri}}</span></p>
+         <p class="border"></p>
+         <p class="text-regular">COMPROBANTE QUE SE MODIFICA <span class="text-gray">FACTURA</span></p>
+        <p class="text-regular" style="margin-top: 7px; margin-bottom: 7px">FECHA DE EMISIÓN (COMPROBANTE A MODIFICAR) <span class="text-gray">{{documents.createdAtSri}}</span></p>
+        <p class="text-regular">RAZÓN DE MODIFICACIÓN <span class="text-gray">{{commentary}}</span> </p>
+     </div>
+     <table class="table-product" width="100%" cellpadding="0" cellspacing="0">
+         <tbody>
+             <tr>
+                 <th class="title-table">Cod Principal</th>
+                 <th class="title-table">Cod Auxiliar</th>
+                 <th class="title-table">Cant</th>
+                 <th class="title-table">Descripción</th>
+                 <th class="title-table">Precio Unitario</th>
+                 <th class="title-table">Descuento</th>
+                 <th class="title-table">Subtotal</th>
+                 <th class="title-table">Precio Total</th>
+             </tr>
+            {{#each details}}
+             <tr>
+                 <td class="text-gray" style="text-align: center ; padding: 4px">{{product.code}}</td>
+                 <td class="text-gray" style="text-align: center; padding: 4px">{{product.autoBarcode}}</td>
+                 <td class="text-gray" style="text-align: center; padding: 4px">{{quantity}}</td>
+                 <td class="text-gray" style="text-align: center; padding: 4px">{{product.description}}</td>
+                 <td class="text-gray" style="text-align: center; padding: 4px">{{price}}</td>
+                 <td class="text-gray" style="text-align: center; padding: 4px">{{discount}}</td>
+                 <td class="text-gray" style="text-align: center; padding: 4px">{{warProductsId}}</td>
+                 <td class="text-gray" style="text-align: center; padding: 4px">{{@root.subtotal}}</td>
+             </tr>
+            {{/each}}
+         </tbody>
+     </table>
+     <div>
+       <div class="border-four">
+         <p class="text-bold" style="margin-bottom: 20px">INFORMACIÓN ADICIONAL</p>
+         <p class="text-bold" style="margin-bottom: 20px">DIRECCIÓN <span class="text-gray"></span></p>
+         <p class="text-bold" style="margin-bottom: 20px">E-MAIL <span class="text-gray"></span> </p>
+       </div>
+       <div class="container-price">
+           <p class="list-price">Subtotal 12% <span class="text-regular" style="position:relative ; left: 185px">S/. {{totalTaxesAmount.subtotal}}</span></p>
+           <p class="list-price">Subtotal IVA 0% <span class="text-regular" style="position:relative ; left: 175px">S/. {{totalTaxesAmount.subtotalIva}}</span></p>
+           <p class="list-price">Subtotal No Objeto a IVA <span class="text-regular" style="position:relative ; left: 146px">S/. {{totalTaxesAmount.subtotalNoObjIva}}</span></p>
+           <p class="list-price">Subtotal Extento a IVA <span class="text-regular" style="position:relative ; left: 155px">S/. {{totalTaxesAmount.subtotalWithotTax}}</span></p>
+           <p class="list-price">Subtotal Sin Impuestos <span class="text-regular" style="position:relative ; left: 153px">S/. {{totalTaxesAmount.discount}}</span></p>
+           <p class="list-price">ICE <span class="text-regular" style="position:relative ; left: 221px">S/. {{totalTaxesAmount.ice}}</span></p>
+           <p class="list-price">IVA 12% <span class="text-regular"style="position:relative ; left: 203px">S/. {{totalTaxesAmount.iva}}</span></p>
+           <p class="list-price">IRBPNR <span class="text-regular" style="position:relative ; left: 207px">S/.{{totalTaxesAmount.tip}}</span></p>
+           <p class="list-price">Valor Total <span class="text-regular" style="position:relative ; left: 196px">S/. {{totalTaxesAmount.total}}</span></p>
+       </div>
+     </div>
+    </div>
+</body>
+</html>

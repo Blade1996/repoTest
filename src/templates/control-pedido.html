@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900" rel="stylesheet">
+    <title>Report</title>
+
+    <style>
+    
+        * {
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .italic {
+          font-style: italic;
+        }
+        
+
+        .bold {
+          font-weight: bold;
+          
+        }
+        
+        .po{
+            width: 50px
+            height:1px;
+            margin-top:-41px;
+            border:1px solid #05579b;
+        }
+        
+        .font-one {
+            margin-left:30px;
+            font-size:17px !important;
+            font-family:'Lato';
+            font-weight: bold;
+        }
+        
+        .header {
+            background-color: white;
+            border-bottom: 2px solid #05579b;
+            height: 118px;
+            padding-top: 50px;
+            padding-bottom: 90px;
+        }
+        
+        .blue {
+            color: #05579b !important;
+        }
+
+        .back-gray {
+          background-color: #f1f3f7 !important;
+        }
+        .main {
+            background-color: #f1f3f7;
+            padding: 10px 25px;
+        }
+        
+        .square {
+            border: 1px solid #05579b;
+            border-radius: 0px 10px 10px 0px;
+            display: inline-block;
+        }
+        
+        .one-square {
+            margin-right: 20px;
+            width: 430px;
+        }
+        
+    
+        .date {
+            border-bottom: 1px solid #d3dde6;
+            display: inline-block;
+            padding: 10px;
+            margin: 0px;
+            margin-left: -5px;
+            text-align: center;
+            width: 210px;
+        }
+        
+        .buy {
+            display: inline-block;
+            border-right: 1px solid #05579b;    
+            padding: 10px;
+            width: 215px;
+        }
+        
+        .buy-two {
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+            width: 200px;
+        }
+        
+        .number-oit {
+            border-right: 1px solid #05579b;
+            display: inline-block;
+            padding: 10px;
+            width: 140px;
+        }
+        
+        .txt
+        
+        .oit-four {
+            display: inline-block;
+            text-align: center;
+            width: 150px;
+        }
+        
+        .table-date td {
+            border:1px solid #05579b;
+            padding:10px;
+        }
+        
+        .title {
+            background-color:#05579b;
+            background:#05579b;
+            text-align:center !important;
+        }
+        
+         .table-date tr > td:nth-child(1){
+             border-right:2px solid #05579b !important;
+             color:#05579b;
+             padding: 10px;
+             padding-left:25px;
+             text-align:left;
+             width:250px;
+           
+         }
+         
+          .table-work tr > td:nth-child(2){
+             background:white;
+             border-color:#d3dde6;
+             border-right:2px solid #05579b !important;
+             color:#8a8a8a;
+             padding-left:20px;
+             text-align:left;
+         }
+         
+         
+         .back-whie {
+             background:white !important;
+         }
+
+         .table-date{
+           border: 1px solid #05579b;
+           border-spacing: 0;
+           border-radius: 0px 0px 1em 1em;
+           font-size:11px;
+           overflow: hidden;
+           margin-bottom: 40px;
+           width: 100%;
+         }
+
+         .table-date td, .table-tools td {
+           border: 1px solid #05579b;
+         }
+
+        .table-date tr:last-child td:last-child {
+          height: 56px;
+        }
+
+
+        img {
+          background: white;
+          height: 62px;
+          padding-right: 10px;
+          width: 188px;
+        }
+
+        .bor-bot-blue {
+          border-bottom: 1px solid #05579b !important;
+          font-family: OpenSans;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0px;
+  color: #8a8a8a;
+        }
+        
+        
+        .bor-top-blue {
+          border-top: 1px solid #05579b !important;
+          font-family: OpenSans;
+          font-size: 9px;
+          font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0px;
+            color: #8a8a8a;
+        }
+        
+        .font-gray {
+            color:#8a8a8a;
+        }
+        
+        
+        
+        .border-blue {
+            border:1px solid #05579b !important;
+        }
+        
+        .flex{
+                display: flex;
+                justify-content: space-around;
+
+        }
+
+        .bar{
+                border: 1px solid #05579b;
+                width: 180px;
+        }
+        .flex{
+                display: flex;
+                justify-content: space-around;
+                background-color: white;
+                margin-top:100px;
+        }
+        .l{
+                color: #05579b;
+                font-size: 10px;
+        }
+        .p{
+                color: #8a8a8a;
+                font-size: 9px;
+        }
+        .table-almacen {
+                border-collapse: collapse;
+                width: 100%;
+        }
+
+        .t{
+                color: #05579b;
+                background-color: #f1f3f7;
+                border: 1px solid#05579b;
+                padding: 6px;  
+                font-weight: bold;
+        }
+
+        .m{
+                background-color: white;
+        }
+
+        .i{
+                border: 1px solid #05579b;
+                height: 20px;
+                padding: 6px;
+                font-family: OpenSans;
+                font-size: 9px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0px;
+                color: #8a8a8a;
+        }
+
+        .title-almacen{
+                display: flex;
+                justify-content: flex-end;
+        }
+
+        .txt{
+                height: 30px;
+                width: 240px;
+                background-color:#05579b ;
+                color: #ffffff;
+                text-align: center;
+                font-size: 15px;
+                outline: 1px solid #05579b;
+                font-weight: bold;
+        }   
+
+        .title{
+                display: flex;space-around;
+                justify-content:;
+        }-
+        .des{
+                width: 100%;
+                color: #05579b;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #05579b;
+                border: 1px solid #05579b;
+                padding: 8px;
+                text-align: center;
+        }
+        .firma{
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 30px;
+        }
+        .almacen{
+                color: #05579b;   
+        }
+
+        .txt-datos{
+                color: #ffffff;
+                background-color:#05579b;
+                outline:1px solid #05579b;
+        
+        }
+        
+        .date-cl{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                background-color: #05579b;
+                color: #ffffff;
+                margin-top:50px;
+                outline:1px solid #05579b;
+        }
+        .background{
+            background-color: #f1f3f7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="https://s3.amazonaws.com/japi-admin/logo-disec.png" alt="logo" class="logo">
+    <p class="po"></p>
+
+    </div>
+    <div class="background">
+     <div class="main">
+        <p class="blue italic font-one">CONTROL DE PEDIDOS DE MATERIALES </p>
+    <div class="flex">
+        <div class="l">N° OIT: <span class="p">{{numberOit}}</span></div>
+        <div class="l"> Fecha de Solicitud : <span class="p">{{entryDate}}</span></div>
+        <div class="l">Hora de Solicitud: <span class="p">{{entryHour}}</span></div>
+        <div class="l">Fecha de Entrega: <span class="p">{{deliveryDate}}</span></div>
+    </div>
+        </div>
+        <table class="table-date">
+            <div class="date-cl">
+               <div>Datos del Cliente</div>
+           </div> 
+	   <tr>
+    	    <td class="bold">Cliente:</td>
+    	    <td class="bor-top-blue">{{customer.name}}</td>
+	   </tr>
+	   <tr>
+    	    <td class="bold">Dirección:</td>
+    	    <td class="bor-bot-blue">{{customer.address}}</td>
+	   </tr>
+	   <tr>
+    	    <td class="bold">Contacto:</td>
+    	    <td class="bor-top-blue">{{customer.contact}}</td>
+	   </tr>
+	   <tr>
+    	    <td class="bold">Responsable Tecnico:</td>
+    	    <td class="bor-bot-blue">{{customer.employeeName}}</td>
+	   </tr>
+	   <tr>
+    	    <td class="bold">Tecnico 01:</td>
+    	    <td class="bor-bot-blue">{{customer.technica01}}</td>
+	   </tr>
+	</table>
+        
+        <div class="title-almacen">
+    <div class="txt">Almacen</div>
+</div>
+
+<div class="title">
+    <div class="t" style="width: 70%">Almacen</div>
+    <div class="t" style="width: 30%">Pedidos</div>
+</div>
+
+<table class="table-almacen">
+
+
+<tr class="m">
+    <th class="t">Item</th>
+    <th class="t">Descripcion</th>
+    <th class="t">Marca</th>
+    <th class="t">Und</th>
+    <th class="t">Cant</th>
+    <th class="t">F.Dev</th>
+    <th class="t">Cant.Dev</th>
+</tr>
+{{# each details}}
+<tr class="m">
+    <td class="i">{{productId}}</td>
+    <td class="i">{{description}}</td>
+    <td class="i">{{name}}</td>
+    <td class="i">{{unitId}}</td>
+    <td class="i">{{quantity}}</td>
+    <td class="i">{{devolutionDate}}</td>
+    <td class="i">{{devolution}}</td>
+</tr>
+{{/each}}
+
+
+    </table>
+
+        <div class="flex">
+            <p class="bar"></p>
+            <p class="bar"></p>
+            <p class="bar"></p>   
+        </div>
+        <div class="firma">
+            <p class="almacen">Almacen</p>
+            <p class="almacen">Tecnico</p>
+            <p class="almacen">Supervisor</p>   
+        </div>
+        
+        </div>
+</body>
+
+</html>

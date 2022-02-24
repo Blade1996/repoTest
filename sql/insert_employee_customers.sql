@@ -1,0 +1,2 @@
+INSERT INTO com_employee_customers (employee_id, customer_id, company_id) SELECT com_employee_id, customer_id, com_company_id 
+FROM sal_documents where due_amount < amount and com_company_id = 101 group by com_employee_id, customer_id, com_company_id;

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+	<title>Report</title>
+	
+	<style>
+	* {
+	    box-sizing: border-box;
+	    font-family: 'Open Sans', sans-serif;
+	  }
+	  
+	  .logo {
+        height:25px;
+        margin-left:10px;
+        margin-top:10px;
+    }
+	
+	.header {
+	    background:#05579b;
+	    height:40px;
+	    margin-bottom:21px;
+	}
+
+	table{
+        border-collapse: collapse;
+        margin-bottom:0px;
+        width: 100%;
+    }
+    
+    .title {
+       font-size:30px;
+       font-weight: 400; 
+       margin-bottom:12px;
+    }
+    
+    hr {
+        background-color:#05579b;
+        border:none;
+        height:2px;
+        margin-bottom:27px;
+    }
+    
+    tr:nth-child(odd) {
+        background-color: #f2f2f2
+        
+    }
+    
+    th {
+        background-color: #0080e9;
+        color: white;
+    }
+    
+    th,td {
+        padding:10px;
+    }
+    
+    .container-info {
+        background:#f1f3f7;
+        border:2px solid #05579b;
+        border-radius:5px;
+        margin-bottom:20px;
+        padding:20px 10px;
+    }
+    
+    .container-info>span:nth-child(2), .container-info>span:nth-child(4){
+        font-size:22px;
+        font-weight:600;
+        margin-right:20px;
+    }
+    
+    .number-facture {
+        color:#1f87e5;
+        font-size:20px;
+        font-weight:600;
+    }
+    
+    .number-facture > span {
+        font-size:24px;
+    }
+    
+    .result-table {
+        background:#1f87e5;
+        color:white;
+        font-weight:600;
+        margin:0;
+        overflow: hidden;
+    }
+    
+    .result-table>p {
+        float:right;
+        margin-right:20px;
+    }
+    
+     td:nth-child(2), td:nth-child(3), td:nth-child(4), td:nth-child(5)  {
+        text-align:center;
+        width:140px;
+    }
+    
+    th:nth-child(1) {
+        text-align:left;
+    }
+    
+    .container-total {
+        font-size:25px;
+        font-weight:600;
+    }
+    
+    .container-total>p {
+        text-align:right;
+    }
+	</style>
+</head>
+<body>
+  <div class="header">
+    <img src="https://s3.amazonaws.com/japi-admin/logo-japi-white.png" class="logo"/>
+  </div>
+  <div>
+    <span class="title">BENEFICIO POR VENTA</span>
+  </div>
+  {{#each result}}
+  <div class="client">
+    <hr>
+    <div class="container-info">
+      <span>Nº de Cliente:</span>
+      <span>{{documentNumber}}</span>
+      <span>Nombre:</span>
+      <span>{{fullName}}</span>
+    </div>
+     {{#each documents}}
+    <div>
+      <p class="number-facture">{{typeDocumentName}}: <span>{{documentNumber}}</span></p>
+      <div> 
+        <table>
+	   <tr>
+	    <th>Artículo</th>
+	    <th>P.Venta</th>
+	    <th>P.Coste</th>
+	    <th>Cant</th>
+	    <th>Beneficio</th>
+	   </tr>
+	   {{#each details}}
+	   <tr>
+	    <td>{{productName}}</td>
+	    <td>S/.{{price}}</td>
+	    <td>S/.{{cost}}</td>
+	    <td>{{quantity}}</td>
+	    <td>S/.{{benefit}}</td>
+	   </tr>
+	   {{/each}}
+	</table>
+	    <div class="result-table">
+	      <p>Beneficio Factura : S/.{{benefitDocument}}</p>
+        </div>
+         {{/each}}
+	    <div class="container-total">
+	      <p>Beneficio Cliente: S/.{{benefitCustomer}}</p>
+	   </div>
+      </div>
+   </div>
+  </div>
+ {{/each}}
+</body>
+</html>

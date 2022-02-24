@@ -1,0 +1,108 @@
+{
+  "name": "dp6-sales-purchases",
+  "version": "0.0.0-development",
+  "description": "the most happy template for rest json apis in nodejs",
+  "private": true,
+  "scripts": {
+    "commit": "npx git cz",
+    "commitmsg": "validate-commit-msg",
+    "coverage": "istanbul cover node_modules/tape/bin/tape -- tape './src/api/server.test.js' 'src/**/*.test.js' './src/config/objection.down.js' | tap-spec",
+    "dev": "nodemon src/index.js --ignore src/**/*.test.js",
+    "migrate": "npx knex migrate:latest",
+    "new-migrate": "npx knex migrate:make",
+    "rollback-migrate": "npx knex migrate:rollback",
+    "lint": "eslint \"src/**/*.js\"",
+    "pretint": "prettier-eslint --write \"src/**/*.js\"",
+    "precommit": "lint-staged && npm test",
+    "semantic-release": "semantic-release",
+    "start": "pm2 start src/index.js -i max --name=dp6-sales",
+    "pretest": "knex seed:run",
+    "pretest-add": "knex seed:make ",
+    "prerestart": "pm2 flush",
+    "restart": "pm2 reload dp6-sales",
+    "test": "tape './src/api/server.test.js' 'src/**/*.test.js' './src/config/objection.down.js' | tap-spec"
+  },
+  "lint-staged": {
+    "linters": {
+      "src/**/*.js": [
+        "npm run pretint",
+        "git add"
+      ],
+      "*.md": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eperedo/hapi-template.git"
+  },
+  "keywords": [],
+  "author": "Eduardo P. Rivero <jrperedo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eperedo/hapi-template/issues"
+  },
+  "homepage": "https://github.com/eperedo/hapi-template#readme",
+  "dependencies": {
+    "aws-sdk": "2.264.1",
+    "axios": "0.18.0",
+    "axios-mock-adapter": "1.15.0",
+    "base64-arraybuffer": "0.1.5",
+    "bcryptjs": "2.4.3",
+    "bluebird": "3.5.1",
+    "boom": "7.2.0",
+    "catbox-redis": "4.1.0",
+    "date-fns": "1.29.0",
+    "dotenv": "6.0.0",
+    "fast-xml-parser": "3.15.0",
+    "firebase-admin": "5.12.1",
+    "glue": "5.0.0",
+    "handlebars": "4.0.11",
+    "hapi": "17.5.2",
+    "hapi-auth-bearer-token": "6.0.1",
+    "hapi-raven": "7.0.0",
+    "hapijs-status-monitor": "1.0.1",
+    "javascript-state-machine": "3.0.1",
+    "joi": "13.4.0",
+    "joi-date-extensions": "1.2.0",
+    "jsreport-client": "0.4.1",
+    "knex": "0.14.6",
+    "lodash": "4.17.10",
+    "moment": "2.22.2",
+    "moment-timezone": "0.5.21",
+    "mysql": "2.16.0",
+    "objection": "1.4.0",
+    "podium": "3.2.0",
+    "point-in-polygon": "1.1.0",
+    "qrcode-generator": "1.4.3",
+    "raven": "2.6.3",
+    "redis": "2.8.0",
+    "sqs-consumer": "3.8.0",
+    "x-ip": "1.0.4",
+    "xlsx": "0.14.0"
+  },
+  "devDependencies": {
+    "commitizen": "2.10.1",
+    "cz-conventional-changelog": "2.1.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.13.0",
+    "husky": "0.14.3",
+    "istanbul": "0.4.5",
+    "lint-staged": "7.2.0",
+    "nodemon": "1.18.7",
+    "pm2": "2.10.4",
+    "prettier": "1.13.6",
+    "prettier-eslint-cli": "4.7.1",
+    "tap-spec": "5.0.0",
+    "tape": "4.9.1",
+    "validate-commit-msg": "2.14.0",
+    "semantic-release": "^15.8.1"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.5.1"
+  }
+}

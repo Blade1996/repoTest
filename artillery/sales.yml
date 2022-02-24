@@ -1,0 +1,49 @@
+config:
+  target: 'http://localhost:4003'
+  phases:
+    - duration: 60
+      arrivalRate: 30
+  defaults:
+    headers:
+      Authorization: 'Bearer 1'
+
+scenarios:
+  - flow:
+    - post:
+        url: "/sale-documents/FAC/type-document"
+        json:
+          amount: 100
+          amountCash: 50
+          amountCredit: 50
+          creditCardName: VISA
+          commentary: Una venta
+          currency: PEN
+          customerId: 1
+          discount: 0
+          exchangeRate: 3.24
+          paymentMethodId: 1
+          subtotal: 18
+          taxes: 18
+          details:
+          - brandId: 1
+            discount: 0
+            price: 20
+            productType: 1
+            quantity: 5
+            stockQuantity: 300
+            warProductsId: 1
+            warWarehousesId: 1
+          detailsPayments:
+          - amount: 100
+            expirationDate: '2018-02-13'
+          transactions:
+          - amount: 100
+            currency: PEN
+            paymentAmount: 221
+            paymentDate: '2018-02-07'
+            typePaymentId: 1
+        capture:
+          json: "$.id"
+          as: "id"
+    - get:
+        url: "/sale-documents/{{ id }}"

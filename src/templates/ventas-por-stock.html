@@ -1,0 +1,33 @@
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+<row>
+    <c t="inlineStr">
+        <is>
+            <t>Reporte de Ventas con Stock</t>
+        </is>
+    </c>
+</row>
+{{/xlsxAdd}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+<row>
+    <c t="inlineStr">
+        <is>
+            <t>Desde {{ startDate }} Hasta {{ endDate }} </t>
+        </is>
+    </c>
+</row>
+{{/xlsxAdd}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+<row>{{#each columns}}
+    <c t="inlineStr">
+        <is>
+            <t> {{name}} </t>
+        </is>
+    </c> {{/each}}
+</row>
+{{/xlsxAdd}} {{#each rows as |product|}} {{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+<row> {{#each ../columns}}
+    <c t="inlineStr">
+        <is>
+            <t> {{lookup ../this (lookup this 'value')}} </t>
+        </is>
+    </c> {{/each}} </row> {{/xlsxAdd}} {{/each}} {{{xlsxPrint}}}

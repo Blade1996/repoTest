@@ -1,0 +1,246 @@
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	 *{font-size: 10px;border-collapse: collapse;}
+	 h1{font-size: 20px;}
+	 p{margin: 0;}
+	 .container{padding-bottom: 50px;}
+	 .fecha{font-size: 10px; text-align: right; margin-bottom: 9px;}
+	 .cabecera{width: 100%; height: 12%;}
+	 .content{width: 100%;margin-bottom: 20px;}
+	 .pie{width: 100%;vertical-align: top;}
+	 .negrita{font-weight: bold;}
+	 .mayu{text-transform: uppercase;}
+	 .amarillo{background-color: #eded55;}
+	 .azul{background-color: #7fceef;}
+	 .border-cell{border: solid 1px black;}
+	 .text-align-R{text-align: right;}
+	 .t-cliente{margin-right: 40px; width: 420px;}
+	 .t-vendedor tr td{padding: 2px;}
+	 .content {padding-top:6px;}
+	 .content table{width: 100%;}
+	 .content table tr td{ border: 1px solid black; text-align: center;}
+
+	 .t-pie table{font-size: 10px;}
+
+	 .banco{margin: 15px 70px;border: solid 1px black;width: 40%;}
+	 .borderBottom{border-bottom: solid 1px black;}
+	 .spacer{width: 340px;}
+	 .marginleft{30px;}
+	 .spacer1{width: 200px;}
+	 .spacer2{width: 220px;}
+	 .peso{width: 39px;}
+	#peso{ border-left: 1px solid black;
+					border-right: 1px solid black;
+					border-bottom: 1px solid black;}
+	 .content .noBorder tr td{border: none;}
+	 .bottom{position: absolute; bottom: 0;}
+	 .fontSize1{font-size: 11px;}
+	 .totalWidth{width: 100px;}
+	</style>
+</head>
+
+<body>
+		<div class="container">
+				<div style="text-align:center">
+						<img src="{{company.logo}}" style="width:700px;height:30px;margin-bottom:30px;">
+				</div>
+				<div style="display:flex;justify-content:center;">
+						<h2 style="text-align:center;font-size: 18px;">
+								<span style="border:1px solid black;padding:7px;">{{typeDocument.name}} {{serie}}-{{number}}</span>
+						</h2>
+				</div>
+		<div class="fecha">
+				<span>Fecha: {{createdAt}}</span></br>
+		</div>
+		<div class="cabecera">
+				<table class="t-cabecera">
+						<tr>
+								<td>
+										<table class="t-cliente">
+												<tr>
+														<td>Señor(es):</td>
+														<td class="negrita mayu">
+																{{customer.typePerson.fullName}}
+														</td>
+												</tr>
+												<tr>
+														<td>Contacto:</td>
+														<td class="mayu">{{customer.contact}}</td>
+												</tr>
+												<tr>
+														<td>RUC:</td>
+														<td class="mayu">{{customer.typePerson.documentNumber}}</td>
+												</tr>
+												<tr>
+														<td>Dirección:</td>
+														<td class="mayu">{{customer.address}}</td>
+												</tr>
+												<tr>
+														<td>Teléfono:</td>
+														<td class="mayu">{{customer.phone}}</td>
+												</tr>
+												<tr>
+														<td>Forma de Pago:</td>
+														<td class="mayu">{{payment.name}}</td>
+												</tr>
+										</table>
+								</td>
+								<td style="width:35px"></td>
+								<td>
+										<table class="t-vendedor">
+												<tr>
+														<td class="amarillo border-cell"nowrap>Plazo de entrega</td>
+														<td class="amarillo border-cell"nowrap>Stock Inmediato</td>
+												</tr>
+												<tr>
+														<td class="azul border-cell">Plazo de entrega:</td>
+														<td class="azul border-cell"nowrap>Importación {{import_days}} días</td>
+												</tr>
+												<tr>
+														<td>Vendedor:</td>
+														<td style="font-size:9px;"nowrap>{{employee.name}} {{employee.lastname}}</td>
+												</tr>
+												<tr>
+														<td nowrap>Validez de la Oferta:</td>
+														<td>{{quotation.daysExpire}} días</td>
+												</tr>
+										</table>
+								</td>
+						</tr>
+				</table>
+		</div>
+		<div class="content">
+				<table style="table-layout:fixed;">
+						<tr>
+								<td class="negrita" style="width:19px;overflow:hidden;text-align:center;" rowspan="2">Item</td>
+								<td class="negrita mayu" style="width:56px;overflow:hidden;" rowspan="2">Código</td>
+								<td class="negrita mayu" style="width:150px;overflow:hidden;" rowspan="2">descripción</td>
+								<td class="negrita mayu" rowspan="2" style="width:57px;overflow:hidden;">marca</td>
+								<td class="negrita" style="width:28px;overflow:hidden;" rowspan="2">
+									<span style="font-size:9px">Descuento</span>
+								</td>
+								<td class="negrita" style="width:90px;overflow:hidden;" colspan="3">Cant</td>
+								<td class="negrita" style="width:28px;overflow:hidden;font-size:9px;" rowspan="2">P.Unit</td>
+								<td class="negrita" style="width:30px;overflow:hidden;font-size:9px;" rowspan="2">Sub Total</td>
+						</tr>
+						 <tr>
+								<td class="negrita" style="font-size:10px;">Pedido</td>
+								<td class="negrita" style="font-size:10px;">Stock</td>
+								<td class="negrita" style="font-size:10px;">Import</td>
+						</tr>
+			{{#each details}}
+		<tr>
+								<td>{{@index}}</td>
+			<td class="negrita"style="overflow:hidden;"nowrap>{{product.code}}
+					<br>
+					{{#if product.location}}
+							({{product.location}})
+					{{/if}}
+			</td>
+			<td style="text-align:left;overflow:hidden;"nowrap>
+					<table class="noBorder" style="table-layout:fixed;" cellspacing="0" cellpadding="0">
+							<tr>
+									<td style="text-align:left;overflow:hidden;"nowrap>{{product.name}}
+									{{#if product.description}}
+													({{product.description}})
+											{{/if}}
+								 </td>
+
+							</tr>
+					</table>
+
+			</td>
+			<td>{{product.brandName}}</td>
+			<td style="font-size:9px;">{{discount}}</td>
+			<td class="fontSize1">{{quantity}}</td>
+								<td class="amarillo fontSize1">{{stockQuantity}}</td>
+								<td class="azul fontSize1">{{importQuantity}}</td>
+								<td style="text-align:right;">{{price}}</td>
+								<td style="text-align:right;">{{subTotal}}</td>
+		</tr>
+		{{/each}}
+				</table>
+		</div>
+		<div class="pie">
+				<table class="t-pie">
+						<tr>
+								<td style="text-align:left">
+										<table class="garantia">
+												<tr>
+														<td class="negrita">Garantía:</td>
+														<td>la ofrecida por el fabricante</td>
+												</tr>
+												<tr>
+														<td class="negrita"  style="border:1px solid black;padding:2px;">Referencia:</td>
+														<td style="border:1px solid black;width:200px;padding:2px;font-weight:bold;">{{commentary}}</td>
+												</tr>
+										</table>
+								</td>
+
+								<td style="width:260px"></td>
+
+								<td style="padding:5px;border:1px solid black;text-align:right">
+										<table>
+												<tr>
+														<td class="negrita fontSize1"nowrap>Sub-Total:</td>
+														<td class="text-align-R fontSize1" style="width:100px">{{currency}} {{subtotal}}</td>
+												</tr>
+												<tr>
+														<td class="negrita fontSize1"nowrap>Descuento:</td>
+														<td class="text-align-R fontSize1" style="width:100px"> {{discount}}</td>
+												</tr>
+												<tr>
+														<td class="negrita mayu fontSize1">igv: 18%</td>
+														<td class="text-align-R fontSize1">{{currencySymbol}} {{taxes}}</td>
+												</tr>
+												<tr>
+														<td class="negrita fontSize1">Total:</td>
+														<td class="border-cell text-align-R fontSize1 negrita"nowrap>{{currencySymbol}} {{amount}}</td>
+												</tr>
+										</table>
+								</td>
+						</tr>
+						<tr>
+								<td style="padding:5px;" colspan="2">SON: {{amountInWords}}</td>
+								<td>
+										<table>
+										 <tr>
+												<td style="padding:5px;"nowrap>T/Cambio: {{exchangeRate}}</td>
+												<td style="padding-left:30px;"nowrap>{{otherSymbol}} {{exchangeAmount}}</td>
+										 </tr>
+										</table>
+								</td>
+						</tr>
+
+				</table>
+				<div class="mayu"></div>
+				{{#if company.bankAccount}}
+				<div class="banco" style="display:inline-block">
+						<p class="mayu negrita">DEPOSITAR A NOMBRE DE:</p>
+						<p class="mayu negrita borderBottom">{{company.companyName}}</p>
+						{{#each company.bankAccount}}
+						<table>
+								<tr>
+										<td><img src="{{image}}"style="width:30px;height:17px;margin:3px;"></td>
+										<td><p class="mayu negrita" style="text-align:center;">{{symbol}} {{number}}</p></td>
+								</tr>
+						</table>
+
+
+						{{/each}}
+				</div>
+				{{/if}}
+		</div>
+		<div class="bottom">
+				{{#each company.footer}}
+						<p style="font-size:8px;">{{this}}</p>
+				{{/each}}
+		</div>
+</body>
+		</div>
+
+</html>

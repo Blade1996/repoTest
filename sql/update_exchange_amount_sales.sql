@@ -1,0 +1,1 @@
+update sal_documents set exchange_amount = IF(currency = 'USD', amount * exchange_rate, amount / exchange_rate) where com_company_id = 101;
