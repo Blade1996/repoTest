@@ -1,7 +1,7 @@
 'use strict';
 
 const Boom = require('boom');
-const Country = require('../../../models/Country');
+const Country = require('../../models/Country');
 
 async function handler(request, h) {
 	try {

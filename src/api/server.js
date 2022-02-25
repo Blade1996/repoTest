@@ -10,9 +10,9 @@ const plugins = require('./plugins-register');
 const cacheConfig = require('./cache');
 const cookie = require('./cookieAuthenticate');
 const { isDevOrProd } = require('../shared/helper');
-const validServicesSync = require('../external-apis/apis-strategies/processSync/PathServicesSync');
-const ExternalApis = require('../external-apis/ExternalApisStrategy');
-const { firebaseSync } = require('../external-apis/apis-strategies/apis-strategies-codes');
+// const validServicesSync = require('../external-apis/apis-strategies/processSync/PathServicesSync');
+// const ExternalApis = require('../external-apis/ExternalApisStrategy');
+// const { firebaseSync } = require('../external-apis/apis-strategies/apis-strategies-codes');
 const { getMessageError } = require('./shared/httpHelper');
 
 dbConfig.initConnection();

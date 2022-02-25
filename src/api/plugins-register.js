@@ -5,11 +5,10 @@ const statusPlugin = require('hapijs-status-monitor');
 const { isDevOrProd } = require('../shared/helper');
 const pagiJapi = require('./shared/paginate');
 const countryPlugin = require('./countries/countries.plugin');
-const dashboardPlugin = require('./configuration-general/dashboard/dashboard-plugin');
 
 // const hapiAxios = require('./shared/axios');
 
-const plugins = [pagiJapi, countryPlugin, dashboardPlugin];
+const plugins = [pagiJapi, countryPlugin];
 
 if (isDevOrProd()) {
 	plugins.push({

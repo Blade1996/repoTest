@@ -1,15 +1,15 @@
 'use strict';
 
 /* istanbul ignore next */
-const { isNullOrUndefined } = require('util');
-const Employee = require('./../models/ComEmployee');
-const Customer = require('./../models/Customer');
-const { customerReseller } = require('./../models/enums/code-type-rol-enum');
-const Token = require('./validate-token');
-const Redis = require('./redis/redis-connection');
+// const { isNullOrUndefined } = require('util');
+// const Employee = require('./../models/ComEmployee');
+// const Customer = require('./../models/Customer');
+// const { customerReseller } = require('./../models/enums/code-type-rol-enum');
+// const Token = require('./validate-token');
+// const Redis = require('./redis/redis-connection');
 
 async function authenticate(request, token) {
-	try {
+/* 	try {
 		let isValid = false;
 		const artifacts = {};
 		if (token) {
@@ -97,8 +97,8 @@ async function authenticate(request, token) {
 		}
 	} catch (error) {
 		/* eslint-disable no-console */
-		console.log(`Error to validate token ${error}`);
-	}
+	// console.log(`Error to validate token ${error}`);
+	// } */
 	return { isValid: false, credentials: {} };
 }
 

@@ -1,12 +1,12 @@
 'use strict';
 
 /* istanbul ignore next */
-const ComEcommerceCompany = require('./../models/ComEcommerceCompany');
-const Redis = require('./redis/redis-connection');
-const Token = require('./validate-token');
+// const ComEcommerceCompany = require('./../models/ComEcommerceCompany');
+// const Redis = require('./redis/redis-connection');
+// const Token = require('./validate-token');
 
 async function authenticate(request, tokenStore) {
-	try {
+/* 	try {
 		let isValid = false;
 		const artifacts = {};
 		if (tokenStore) {
@@ -64,8 +64,8 @@ async function authenticate(request, tokenStore) {
 		}
 	} catch (error) {
 		/* eslint-disable no-console */
-		console.log(`Error to validate store-token ${error}`);
-	}
+	//	console.log(`Error to validate store-token ${error}`);
+	// } */
 	return { isValid: false, credentials: {} };
 }
 
