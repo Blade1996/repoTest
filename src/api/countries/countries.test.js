@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const helper = require('./../../../shared/helperTest');
+const helper = require('./../../shared/helperTest');
 
 let server = null;
 helper.mockServer().then((serverResponse) => {
