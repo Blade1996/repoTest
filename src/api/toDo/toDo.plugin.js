@@ -1,9 +1,11 @@
 'use strict';
 
 const toDoListRoute = require('./toDo-list.router');
+const toDoCreateRoute = require('./toDo-create.route');
 
 function register(server) {
 	server.route(toDoListRoute);
+	server.route(toDoCreateRoute);
 }
 
 const plugin = {

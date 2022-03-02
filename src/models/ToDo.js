@@ -37,6 +37,10 @@ class ToDo extends baseModel {
 		return this.query().where('id', id).first();
 	}
 
+	static findByName($name) {
+		return this.query().where('activity', $name).first();
+	}
+
 	static create(data) {
 		return this.query().insert(data);
 	}
