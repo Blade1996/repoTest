@@ -6,11 +6,11 @@ const { isDevOrProd } = require('../shared/helper');
 const pagiJapi = require('./shared/paginate');
 const countryPlugin = require('./countries/countries.plugin');
 const toDoPlugin = require('./toDo/toDo.plugin');
-
+const userPlugin = require('./users/users.plugin');
 
 // const hapiAxios = require('./shared/axios');
 
-const plugins = [pagiJapi, countryPlugin, toDoPlugin];
+const plugins = [pagiJapi, countryPlugin, toDoPlugin, userPlugin];
 
 if (isDevOrProd()) {
 	plugins.push({
