@@ -4,14 +4,14 @@
 'use strict';
 
 const Boom = require('boom');
-const ToDo = require('./../../models/ToDo');
+const User = require('./../../models/User');
 const { alreadyExists } = require('./../shared/error-codes');
 
 
-async function getToDo(request, h) {
+async function getUser(request, h) {
 	try {
 		const { payload } = request;
-		const data = await ToDo.findByName(payload.activity);
+		const data = await User.findByName(payload.name);
 		
 		if (data) {
 			return Boom.badRequest(alreadyExists);
@@ -23,7 +23,7 @@ async function getToDo(request, h) {
 }
 
 const methods = {
-	getToDo,
+	getUser,
 };
 
 module.exports = methods;
