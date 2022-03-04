@@ -9,7 +9,7 @@ function register(server) {
 }
 
 const plugin = {
-	name: 'to-do',
+	name: 'product',
 	version: '1.0.0',
 	register,
 };
