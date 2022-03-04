@@ -1,8 +1,8 @@
 'use strict';
 
 const Joi = require('joi');
-const handler = require('./toDo-create.handler');
-const { getToDo } = require('./toDo.pre');
+const handler = require('./categories-create.handler');
+const { getCategories } = require('./categories.pre');
 
 const route = {
 	handler, // el metodo del servicio
@@ -10,14 +10,15 @@ const route = {
 	options: {
 		auth: false, // no requiera autenticación
 		pre: [
-			{            
-				assign: 'validToDo',
-				method: getToDo,
+			{
+				assign: 'validCategories',
+				method: getCategories,
 			},
 		], // serie de validaciones antes de enviar al handler
 		validate: {
 			payload: {
-				activity: Joi.string().required(),
+				name: Joi.string().required(),
+				description: Joi.string().required(),
 				done: Joi.boolean().required(),
 				
 			},
@@ -27,7 +28,7 @@ const route = {
 		}, // aqui se colocara los valores que va a recibir el servicio
 
 	},
-	path: '/to-do/create',
+	path: '/categories/create',
 };
 
 module.exports = route;
