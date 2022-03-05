@@ -1,31 +1,27 @@
 'use strict';
 
 const Joi = require('joi');
-const handler = require('./toDo-create.handler');
-const { getToDo } = require('./toDo.pre');
+const handler = require('./toDo-delete.handler');
+const { validExits } = require('./toDo.pre');
 
 const route = {
 	handler, // el metodo del servicio
-	method: 'POST', // metodo http
+	method: 'DELETE', // metodo http
 	options: {
 		auth: false, // no requiera autenticación
 		pre: [
 			{
-				assign: 'validToDo',
-				method: getToDo,
+				method: validExits,
 			},
 		], // serie de validaciones antes de enviar al handler
 		validate: {
-			payload: {
-				activity: Joi.string().required(),
-			},
-			query: {
-				search: Joi.string().allow(null, ''),
+			params: {
+				id: Joi.number().integer().required(),
 			},
 		}, // aqui se colocara los valores que va a recibir el servicio
 
 	},
-	path: '/to-do',
+	path: '/to-do/{id}',
 };
 
 module.exports = route;
