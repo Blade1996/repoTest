@@ -4,8 +4,9 @@
 'use strict';
 
 const Boom = require('boom');
+const { isNullOrUndefined } = require('util');
 const ToDo = require('./../../models/ToDo');
-const { alreadyExists } = require('./../shared/error-codes');
+const { alreadyExists, notFound } = require('./../shared/error-codes');
 
 
 async function getToDo(request, h) {
@@ -21,8 +22,22 @@ async function getToDo(request, h) {
 	}
 }
 
+async function validExits(request, h) {
+	try {
+		const { id } = request.params;
+		const data = await ToDo.getActById(id);
+		if (isNullOrUndefined(data)) {
+			return Boom.badRequest(notFound);
+		}
+		return h.response();
+	} catch (error) {
+		return Boom.badImplementation(error, error);
+	}
+}
+
 const methods = {
 	getToDo,
+	validExits,
 };
 
 module.exports = methods;
