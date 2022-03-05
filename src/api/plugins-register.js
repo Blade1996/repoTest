@@ -9,6 +9,8 @@ const toDoPlugin = require('./toDo/toDo.plugin');
 const userPlugin = require('./users/users.plugin');
 const productPlugin = require('./product/product.plugin');
 
+// const hapiAxios = require('./shared/axios');
+
 const plugins = [pagiJapi, countryPlugin, toDoPlugin, userPlugin, productPlugin];
 
 if (isDevOrProd()) {
