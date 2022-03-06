@@ -56,5 +56,12 @@ class User extends baseModel {
 	static create(data) {
 		return this.query().insert(data);
 	}
+	static edit(data, id) {
+		return this.query().patch(data).where('id', id);
+	}
+
+	static remove(id) {
+		return this.query().softDelete().where('id', id);
+	}
 }
 module.exports = User;
