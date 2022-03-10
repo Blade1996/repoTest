@@ -47,11 +47,11 @@ class Product extends baseModel {
 	}
 
 	static edit(data, id) {
-		return this.query.patch(data).where('id', id);
+		return this.query().patch(data).where('id', id);
 	}
 
 	static remove(id) {
-		return this.query().deleteById(id);
+		return this.query().softDelete().where('id', id);
 	}
 }
 
