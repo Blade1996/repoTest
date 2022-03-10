@@ -49,7 +49,7 @@ class Categories extends baseModel {
 	}
 
 	static edit(data, id) {
-		return this.query.patch(data).where('id', id);
+		return this.query().patch(data).where('id', id);
 	}
 
 	static remove(id) {

@@ -4,8 +4,9 @@
 'use strict';
 
 const Boom = require('boom');
+const { isNullOrUndefined } = require('util');
 const Categories = require('./../../models/Categories');
-const { alreadyExists } = require('./../shared/error-codes');
+const { alreadyExists, notfound } = require('./../shared/error-codes');
 
 
 async function getCategories(request, h) {
@@ -21,8 +22,21 @@ async function getCategories(request, h) {
 	}
 }
 
+async function ValidExists(request, h) {
+	try {
+		const { id } = request.params;
+		const data = await Categories.getActById(id);
+		if (isNullOrUndefined(data)) {
+			return Boom.badRequest(notfound);
+		}
+		return h.response();
+	} catch (error) {
+		return Boom.badImplementation(error, error);
+	}
+}
 const methods = {
 	getCategories,
+    ValidExists,
 };
 
 module.exports = methods;
