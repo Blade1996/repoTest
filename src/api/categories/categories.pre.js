@@ -1,6 +1,7 @@
 /* eslint-disable no-mixed-operators */
 /* eslint-disable no-param-reassign */
 
+
 'use strict';
 
 const Boom = require('boom');
